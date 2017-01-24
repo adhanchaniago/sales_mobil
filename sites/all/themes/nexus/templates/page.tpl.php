@@ -92,6 +92,22 @@
       </div>
     </div>
   </header>
+  
+  <?php if($page['top_first'] || $page['top_last']) : ?>
+    <?php $preface_col = ( 12 / ( (bool) $page['top_first'] + (bool) $page['top_last'] ) ); ?>
+    <div id="top-area">
+      <div class="container">
+        <div class="rowMenu">
+          <?php if($page['top_first']): ?><div class="top-block col-sm-8">
+            <?php print render ($page['top_first']); ?>
+          </div><?php endif; ?>
+                   <?php if($page['top_last']): ?><div class="top-block col-sm-4">
+            <?php print render ($page['top_last']); ?>
+          </div><?php endif; ?>
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
 
 
   <?php if ($is_front): ?>
